@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="baseApp">
+	<head>
+    	<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    	<title>BaseApp</title>
+
+	</head>
+	
+  <body>
+      
+  	<!-- Header -->
+    <div class="header-fill">  
+        Header
+    </div>	
+  	<!-- End Header -->
+    <div class="content-fill">  
+        <div ng-view class="content-wrapper"></div>
+    </div>
+    <!-- Footer -->
+    <div class="footer-fill">
+        Footer
+    </div>
+     <!-- End Footer --> 
+      
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>     
+
+  </body>	
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "base-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.5.7",
+    "bootstrap": "3.3.7"
+  }
+}
