@@ -55,7 +55,7 @@
                 } else { //not logged in
                     deferred.reject(null);
                 }
-            }, 1000);
+            }, 2000);
 
             return deferred.promise;                
         }

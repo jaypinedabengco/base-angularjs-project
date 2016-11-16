@@ -22,7 +22,7 @@
         activate();
 
         function activate(){
-           console.log(vm);
+           console.log('sampleComponent', vm);
 
            sampleService.samplePromise('hello').then(function(content){
                console.log('hey!', content);

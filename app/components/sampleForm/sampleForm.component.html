@@ -1,0 +1,36 @@
+<md-content layout-padding>
+    <form name="sampleForm">
+        <md-input-container class="md-block">
+            <label>Firstname</label>
+            <input required name="firstname" ng-model="$ctrl.user.firstname">
+            <div ng-messages="sampleForm.firstname.$error">
+                <div ng-message="required">Firstname is required.</div>
+            </div>
+        </md-input-container>        
+        <md-input-container class="md-block">
+            <label>Lastname</label>
+            <input required name="lastname" ng-model="$ctrl.user.lastname">
+            <div ng-messages="sampleForm.lastname.$error">
+                <div ng-message="required">Lastname is required.</div>
+            </div>
+        </md-input-container>  
+        <md-input-container>
+          <label>Country of Residence</label>
+          <md-select name="countryOfResidence" ng-model="$ctrl.user.countryOfResidenceId" required>
+            <md-option ng-repeat="country in $ctrl.countryList" ng-value="country.id">
+              {{country.name}}
+            </md-option>
+          </md-select>
+            <div ng-messages="sampleForm.countryOfResidence.$error">
+                <div ng-message="required">Country of Residence is required.</div>
+            </div>          
+        </md-input-container>         
+
+        <md-button class="md-primary" 
+            ng-click="$ctrl.onSubmit()" 
+            ng-disabled="!sampleForm.$valid || $ctrl.saving">Submit</md-button>          
+    </form>
+    <div ng-show="$ctrl.saveSuccessful"> 
+        Successfully Saved!
+    </div>
+</md-content>

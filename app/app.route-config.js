@@ -30,6 +30,12 @@
                     sampleServiceResult : sampleServiceResult
                 }
             })
+            .when('/sampleForm', {
+                template: '<sample-form></sample-form>'
+            })
+            .when('/fancySampleForm', {
+                templateUrl: 'views/sampleForm.view.html'
+            })            
             .when('/404', {
                 templateUrl: 'views/404.view.html'
             })

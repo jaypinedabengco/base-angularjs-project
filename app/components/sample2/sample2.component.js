@@ -20,7 +20,11 @@
         vm.courses = null;
         vm.users = null;
 
+        vm.onClick = onClick; 
+
         activate();
+
+        ////////
 
         function activate(){
            console.log(vm);
@@ -38,6 +42,10 @@
            mockApiService.get('/sample-users-list.json').then(function(result){
                vm.users = result;
            });         
+        }
+
+        function onClick(){
+            console.log('Hello!');
         }
 
     }

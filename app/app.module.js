@@ -27,6 +27,7 @@
     if ( _current_url.indexOf(_stage_url) > -1 ){
         /*Stage*/
         _init_app_configs.studylane.api_url = "https://gsp-sl-api-stage.studylane.com";
+        _init_app_configs.version =  '0.1.0';
     }   
     else if ( _current_url.indexOf(_prod_url) > -1 ){
         /*Prod*/ 
@@ -42,7 +43,8 @@
     angular
         .module('app', [   
             'ngRoute',
-
+            'ngMaterial',
+            
             'app.sampleFactory.module',
             'app.sampleComponent.module'            
         ])
