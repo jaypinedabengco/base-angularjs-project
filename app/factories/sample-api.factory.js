@@ -9,8 +9,8 @@
     function Service($http, config){
 
         var _base_url = config.studylane.api_url;
-
         var _headers = {'Content-Type' : 'application/json'};
+
         var services = {
             post: post,
         }
@@ -24,25 +24,26 @@
          */
         function post(api, data, custom_headers){
             var _url = _base_url + api;
-            var _post_config = {
-                headers : _headers
-            }
+            var _post_config = { headers : _headers };
 
             //if data is empty
-            if (!data || data instanceof Object == false) 
-                data = {};
+            data = (!data || data instanceof Object == false)?{}:data;
 
             //use custom headers & merge to default headers
-            if (!!custom_headers && custom_headers instanceof Object) 
-                _post_config.headers = mergeHeaders(_post_config.headers, custom_headers);
+             _post_config.headers =  (!!custom_headers && custom_headers instanceof Object) ? mergeHeaders(_post_config.headers, custom_headers) : _post_config.headers; 
             
             return $http.post(_url, data, _post_config)
                     .then(successHandler, failHandler)
                     .catch(errorHandler);
         }
 
+
+        /**
+         * Functions for within the factory scope
+         */
+
         function successHandler(result){
-            console.log('success', result);
+           // console.log('success', result);
             return result.data.reference_data;
         }
 

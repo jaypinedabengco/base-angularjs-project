@@ -11,22 +11,33 @@
             controller : Controller
     });
 
-    Controller.$inject = ['sampleApiService'];
-    function Controller(sampleApiService){
+    Controller.$inject = ['sampleApiService', 'mockApiService'];
+    function Controller(sampleApiService, mockApiService){
 
         var vm = this;
 
-        vm.countries = [];
+        vm.countries = null;
+        vm.courses = null;
+        vm.users = null;
 
         activate();
 
         function activate(){
            console.log(vm);
 
+           //get countries
            sampleApiService.post('/api/country/get-list-with-current-location').then(function(result){
-               console.log(result);
                vm.countries = result.country_list;
-           })
+           });
+
+           //get courses
+           sampleApiService.post('/api/tile/courses/list').then(function(result){
+               vm.courses = result;
+           });
+
+           mockApiService.get('/sample-users-list.json').then(function(result){
+               vm.users = result;
+           });         
         }
 
     }
