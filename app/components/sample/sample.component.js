@@ -6,8 +6,7 @@
         .component('sample', {
             templateUrl : 'components/sample/sample.component.html',
             bindings: {
-                loggedUserInfo: '<',
-                sampleServiceValue: '<'
+               resolve: '<'
             },
             controller : Controller
     });
@@ -17,7 +16,7 @@
 
         var vm = this;
 
-        console.log('config',config);
+        console.log('resolve', vm);
 
         activate();
 

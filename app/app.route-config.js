@@ -24,7 +24,7 @@
                 templateUrl: 'views/login.view.html',
             })            
             .when('/sample', {
-                template: '<sample logged-user-info="$resolve.loggedUserInfo" sample-service-value="$resolve.sampleServiceResult"></sample>',
+                template: '<sample resolve="$resolve" logged-user-info="$resolve.loggedUserInfo" sample-service-value="$resolve.sampleServiceResult"></sample>',
                 resolve : {
                     loggedUserInfo : getLoggedUserInfo,
                     sampleServiceResult : sampleServiceResult
