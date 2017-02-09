@@ -8,7 +8,7 @@
     Service.$inject = ['$http', 'config'];
     function Service($http, config){
 
-        var _base_url = config.studylane.api_url;
+        var _base_url = config.api_url;
         var _headers = {'Content-Type' : 'application/json'};
 
         var services = {

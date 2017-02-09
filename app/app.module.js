@@ -12,15 +12,13 @@
             'app.sampleFactory.module',
             'app.sampleComponent.module'            
         ])
-        .run(initialize)
-        .constant('config', _init_app_configs);
+        .run(initialize);
 
     //////////////
 
     function initialize(){
         console.log('on load!');
     }
-
 
 
 })();

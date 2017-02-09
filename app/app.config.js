@@ -10,7 +10,7 @@
     var _configs = {
         env : 'dev',
         version : '1.0.0',
-        api_url : 'localhost:3000/'
+        api_url : 'https://gsp-sl-api-stage.studylane.com/'
     };
 
     /**********************************************************
