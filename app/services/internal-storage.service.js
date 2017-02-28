@@ -6,7 +6,7 @@
     */
 
     angular
-        .module('app.factory.module')
+        .module('app.service.module')
         .factory('internalStorageService', Service);
 
     Service.$inject = [];

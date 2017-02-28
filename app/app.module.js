@@ -7,10 +7,12 @@
     angular
         .module('app', [   
             'ngRoute',
-            'ngMaterial',
-            
-            'app.sampleFactory.module',
-            'app.sampleComponent.module'            
+
+            'app.component.module',
+            'app.constant.module', 
+            'app.service.module',             
+            'app.filter.module',               
+            'app.dataService.module'
         ])
         .run(initialize);
 

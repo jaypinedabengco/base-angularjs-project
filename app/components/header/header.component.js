@@ -2,7 +2,7 @@
 (function(){
 
      angular
-        .module('app.sampleComponent.module')
+        .module('app.component.module')
         .component('appHeader', {
             templateUrl : 'components/header/header.component.html',
             controller : Controller

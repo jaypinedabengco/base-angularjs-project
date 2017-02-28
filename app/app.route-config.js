@@ -14,45 +14,36 @@
         $locationProvider.hashPrefix('!');
 
         $routeProvider
-            .when('/', {
-                templateUrl: 'views/home.view.html'
-            })
-            .when('/home', {
-                templateUrl: 'views/home.view.html'
-            })
-            .when('/login', {
-                templateUrl: 'views/login.view.html',
-            })            
-            .when('/sample', {
-                template: '<sample resolve="$resolve" logged-user-info="$resolve.loggedUserInfo" sample-service-value="$resolve.sampleServiceResult"></sample>',
-                resolve : {
-                    loggedUserInfo : getLoggedUserInfo,
-                    sampleServiceResult : sampleServiceResult
-                }
-            })
-            .when('/sampleForm', {
-                template: '<sample-form></sample-form>'
-            })
-            .when('/fancySampleForm', {
-                templateUrl: 'views/sampleForm.view.html'
-            })            
-            .when('/404', {
-                templateUrl: 'views/404.view.html'
-            })
-            .otherwise('/404');
+            // .when('/', {
+            //     templateUrl: 'views/home.view.html'
+            // })
+            // .when('/home', {
+            //     templateUrl: 'views/home.view.html'
+            // })
+            // .when('/login', {
+            //     templateUrl: 'views/login.view.html',
+            // })            
+            // .when('/sample', {
+            //     template: '<sample resolve="$resolve" logged-user-info="$resolve.loggedUserInfo" sample-service-value="$resolve.sampleServiceResult"></sample>',
+            //     resolve : {
+            //         loggedUserInfo : getLoggedUserInfo
+            //     }
+            // })
+            // .when('/sampleForm', {
+            //     template: '<sample-form></sample-form>'
+            // })
+            // .when('/fancySampleForm', {
+            //     templateUrl: 'views/sampleForm.view.html'
+            // })            
+            // .when('/404', {
+            //     templateUrl: 'views/404.view.html'
+            // })
+            // .otherwise('/404');
 
     }
 
     ////////////
 
-
-    /*
-        Creating a sample service that will be used on resolves
-    */
-    sampleServiceResult.$inject = ['sampleService'];
-    function sampleServiceResult(sampleService) {
-        return sampleService.samplePromise('then');
-    }
 
     /**
      * Check in resolve if user is logged in
@@ -61,19 +52,7 @@
      * 
      */
     getLoggedUserInfo.$inject = ['$location','$q', 'sampleService'];
-    function getLoggedUserInfo($location, $q, sampleService) {
-
-        var deferred = $q.defer();
-
-        sampleService.getLoggedInUserInfo(_is_user_logged_in).then(function(data){ 
-            deferred.resolve(data);
-        }).catch(function(error){
-            console.log(error);
-            deferred.reject(false);
-            return $location.path('/login');
-        });
-
-        return deferred.promise;                         
+    function getLoggedUserInfo($location, $q, sampleService) {               
     }    
 
 })();

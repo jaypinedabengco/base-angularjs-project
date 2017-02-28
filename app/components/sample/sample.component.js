@@ -2,7 +2,7 @@
 (function(){
 
      angular
-        .module('app.sampleComponent.module')
+        .module('app.component.module')
         .component('sample', {
             templateUrl : 'components/sample/sample.component.html',
             bindings: {

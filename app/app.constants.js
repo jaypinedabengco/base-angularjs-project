@@ -10,8 +10,11 @@
     var _configs = {
         env : 'dev',
         version : '1.0.0',
-        api_url : 'https://gsp-sl-api-stage.studylane.com/'
     };
+
+    var _api_configs = {
+        sample_api_url : 'https://jsonplaceholder.typicode.com'
+    }
 
     /**********************************************************
      * Update Config based on environment
@@ -21,11 +24,11 @@
     var _prod_urls = ['stage.', 'prod1.', 'prod2.'];
 
     if ( isOnEnvironment(_stage_urls) ){
-         _configs.env = 'stage';
-        _configs.api_url = "stage.com/";
+        _configs.env = 'stage';
+        _api_configs.sample_api_url = "stage.com/";
     } else if ( isOnEnvironment(_prod_urls) ){
         _configs.env = 'prod';
-        _configs.api_url = "prod.com/";
+        _api_configs.sample_api_url = "prod.com/";
     } 
 
     /****************************************
@@ -45,7 +48,8 @@
      *****************************************/
     angular
         .module('app')
-        .constant('config', _configs);
+        .constant('appConfig', _configs)
+        .constant('appAPIConfig', _api_configs);
     //////////////    
 
 

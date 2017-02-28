@@ -1,12 +1,12 @@
 'use strict';
 /**
- * Simple CRUD 
+ * Simple CRUD, save on variable session
  */
 (function(){
     
     angular
-        .module('app.factory.module')
-        .factory('cacheVariableService', Service);
+        .module('app.service.module')
+        .factory('softCacheService', Service);
 
     Service.$inject = [];
     function Service(){

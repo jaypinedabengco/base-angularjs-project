@@ -2,7 +2,7 @@
 (function(){
     
     angular
-        .module('app.factory.module')
+        .module('app.service.module')
         .factory('runIntervalService', Service);
 
     Service.$inject = ['$q', '$interval'];
