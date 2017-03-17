@@ -6,9 +6,9 @@
 */
 (function(){
   angular.module('app.service.module')
-        .service('nsNotifyBeforeUnload', ['$window', nsNotifyBeforeUnloadService])
-        .factory('nsNavigationService', ['$route', nsNavigationService])
-        .factory('nsFormOnLeaveNotifyService', [nsFormOnLeaveNotifyService])
+        .service('app.navigation.service.notifyBeforeUnload', ['$window', nsNotifyBeforeUnloadService])
+        .factory('app.navigation.service.navigate', ['$route', nsNavigationService])
+        .factory('app.navigation.service.formOnLeaveNotify', [nsFormOnLeaveNotifyService])
         ;
 
     //////////
