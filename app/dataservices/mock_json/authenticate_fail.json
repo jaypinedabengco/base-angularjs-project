@@ -1,0 +1,7 @@
+{
+    "success": false,
+    "status": "fail",
+    "actor": "/mock-data",
+    "hostname": "mockness",
+    "reference_data": "Invalid Username or Password"
+  }

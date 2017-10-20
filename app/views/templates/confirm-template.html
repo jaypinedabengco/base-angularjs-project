@@ -1,0 +1,12 @@
+<md-dialog class="md-default-theme dialog-template dialog-template-commons-confirm" md-theme="default" aria-label="Confirm" flex="40">
+    <md-dialog-content class="md-dialog-content">
+        <h2 class="md-title">{{title}}</h2>
+        <div class="md-dialog-content-body">
+            <p>{{content}}</p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button class="md-raised cancel-button" ng-click="confirm(false)" aria-label="{{noLabel}}" flex="25">{{noLabel}}</md-button>
+        <md-button class="md-raised md-primary" ng-click="confirm(true)" aria-label="{{yesLabel}}" flex="25">{{yesLabel}}</md-button>
+    </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "status": "success",
+  "actor": "/mock-data",
+  "hostname": "mockness",
+  "reference_data": "ADD sample data here... either object, string, int, array., etc.,"
+}

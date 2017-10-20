@@ -1,25 +1,23 @@
 'use strict';
 (function(){
+    // Define the `app` module
+    angular.module('app', [
 
-    /**
-     * App
-     */
-    angular
-        .module('app', [   
-            'ngRoute',
-            'ngMaterial',
+        //external modules
+        'ngMaterial',
+        'ngRoute',
+        'ngCookies',
+        'ngMessages',
+      
+        //base modules
+        'app.service.module', 
+        'app.dataservice.module',       
+        'app.component.module',
+        'app.directive.module', 
+        'app.constant.module', 
+        'app.filter.module'
             
-            'app.sampleFactory.module',
-            'app.sampleComponent.module'            
-        ])
-        .run(initialize);
-
-    //////////////
-
-    function initialize(){
-        console.log('on load!');
-    }
-
-
+    ]);
+    
 })();
 

@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "status": "success",
+  "actor": "/mock-data",
+  "hostname": "mockness",
+  "reference_data": "abcd123"
+}
