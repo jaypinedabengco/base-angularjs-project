@@ -14,34 +14,22 @@
     function AppRouteConfig($locationProvider, $routeProvider) {
 
       /**
-       * Resolves,
-       * used to validate 
-       * page access
+       * ROUTES
        */
-      const RESOLVES = {
-        is_logged_in : { //prevent access to pages that requires login 
-          resolve : function(routeResolveService, $location){
-            return routeResolveService
-              .isLoggedIn()
-              .then(function(result){
-                return result;
-              }, function(err){
-                $location.path('/login');
-              });
-          }
-        },
-        is_logged_out : { //prevent access to pages that requires login
-          resolve : function(routeResolveService, $location){
-            return routeResolveService
-              .isLoggedOut()
-              .then(function(result){
-                return result;
-              }, function(err){
-                $location.path('/login');
-              });
-          }
-        }        
+      var RESOLVES = {
+        is_logged_in : {
+          resolve : ['routeResolveService', function(routeResolveService){
+            return routeResolveService.logged_in();
+          }]
+        }, 
+        not_logged_in : {
+          resolve: ['routeResolveService', function(routeResolveService){
+            return routeResolveService.not_logged_in();
+          }]
+        }
       }
+
+      ////////////
 
       //Routing
       $locationProvider.hashPrefix('!');
@@ -50,10 +38,15 @@
             templateUrl: 'views/login.view.html'                    
         })
         .when('/login', {
-            templateUrl: 'views/login.view.html'
+            templateUrl: 'views/login.view.html', 
+            resolve: RESOLVES.not_logged_in
         })
         .when('/404', {
           templateUrl : 'views/404.view.html'                  
+        })
+        .when('/dashboard', {
+          templateUrl : 'views/dashboard.view.html', 
+          resolve: RESOLVES.is_logged_in
         })
         .otherwise('/404');
     }    

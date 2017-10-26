@@ -10,12 +10,19 @@
     /**
      * 
      */
-    RouteResolveService.$inject = ['$q', '$location', 'app.authentication.dataservice']
-    function RouteResolveService($q, $location, authenticationDataService){
+    RouteResolveService.$inject = [
+        '$q', '$location', 
+        'app.authentication.dataservice'
+    ];
+    function RouteResolveService(
+        $q, $location, 
+        authenticationDataservice
+    ){
 
         var services = {
-            isLoggedIn : isLoggedIn,
-            isLoggedOut : isLoggedOut
+            preload : preload, 
+            logged_in : logged_in, 
+            not_logged_in : not_logged_in
         };
 
         return services;
@@ -25,32 +32,62 @@
         /**
          * 
          */
-        function isLoggedIn(){
-            return authenticationDataService.isLoggedIn();
+        function preload(){
+            var resolve = {
+
+            }
         }
 
         /**
          * 
          */
-        function isLoggedOut(){
-            var defer = $q.defer();
-            authenticationDataService
-                .isLoggedIn()
-                .then(
-                    function(is_logged_in){
-                        if ( !is_logged_in ){
-                            defer.resolve(true);
-                        } else {
-                            defer.reject(true);
-                        }
-                    }, 
-                    function(err){
-                        defer.resolve(true);
-                    }
-                );
+        function logged_in(){
 
-            return defer.promise;        
+            var resolve = {
+                is_logged_in : _isLoggedIn()
+            }
+
+            return resolve;
+            
         }
+
+        /**
+         * 
+         */
+        function not_logged_in(){
+            var resolve = {
+                is_logged_in : _isNotLoggedIn()
+            }
+
+            return resolve;            
+        }
+
+        /**
+         * 
+         */
+        function _isLoggedIn(){
+            return authenticationDataservice.isLoggedIn()
+                .then()
+                .catch(function(err){
+                    console.log('not logged in, redirecting to login page');
+                    $location.path('/login');
+                    console.log(err);
+                });
+        }
+
+        /**
+         * 
+         */
+        function _isNotLoggedIn(){
+
+            return authenticationDataservice.isNotLoggedIn()
+                .then()
+                .catch(function(err){
+                    $location.path('/dashboard');
+            });
+            
+        }        
+
 
     }
    

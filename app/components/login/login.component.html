@@ -1,1 +1,7 @@
-<div>LOGIN</div>
+<div>
+    <form name="loginForm" method="post" ng-submit="$ctrl.login(username, password)">
+        <input type="text" name="username" ng-model="username" required/> <br/> 
+        <input type="password" name="password" ng-model="password" required/> <br/> 
+        <button type="submit" value="Submit" ng-disabled="!loginForm.$valid">Submit</button>        
+    </form>
+</div>

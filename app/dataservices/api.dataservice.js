@@ -52,7 +52,7 @@
          * @param {*} auth_token 
          */
 		function mock_post(file_name, data, auth_token){
-			return doMockRequest(MOCK_DATA_LOCATION + file_name, 'POST', data, auth_token);			
+			return doMockRequest(file_name);			
 		}
 
         /**
@@ -61,7 +61,7 @@
          * @param {*} auth_token 
          */
 		function mock_get(file_name, auth_token){
-			return doMockRequest(MOCK_DATA_LOCATION + file_name, 'GET', {}, auth_token);
+			return doMockRequest(file_name);
 		}
 
         /**
@@ -111,14 +111,12 @@
 		/**
 		 * 
 		 */
-		function doMockRequest(api_url, method, data, auth_token){
-			var _method = (method && method.toLowerCase() == 'post')?'POST':'GET';
+		function doMockRequest(filename){
 			
 			//build options
 			var _options = {
-				method : _method, 
-				url : api_url,
-				data : data
+				method : 'GET', 
+				url : MOCK_DATA_LOCATION + filename,
 			};		
 
 			var defer = $q.defer();
